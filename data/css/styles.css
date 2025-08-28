@@ -1,0 +1,391 @@
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background: linear-gradient(135deg, #232323 0%, #393939 50%, #2c2c2c 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(0, 162, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 162, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(0, 162, 255, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .roblox-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .container {
+            background: 
+                linear-gradient(135deg, rgba(57, 57, 57, 0.95) 0%, rgba(45, 45, 45, 0.95) 100%),
+                radial-gradient(circle at top left, rgba(0, 162, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at bottom right, rgba(0, 102, 204, 0.1) 0%, transparent 50%);
+            backdrop-filter: blur(20px);
+            border: none;
+            border-radius: 24px;
+            padding: 50px 40px;
+            width: 90%;
+            max-width: 520px;
+            text-align: center;
+            box-shadow: 
+                0 30px 80px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(0, 162, 255, 0.03), transparent);
+            animation: containerShimmer 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .container::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent 0deg,
+                rgba(0, 162, 255, 0.05) 45deg,
+                rgba(0, 162, 255, 0.1) 90deg,
+                transparent 135deg,
+                rgba(0, 102, 204, 0.05) 180deg,
+                transparent 225deg,
+                rgba(0, 162, 255, 0.05) 270deg,
+                transparent 315deg
+            );
+            animation: rotate 8s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes containerShimmer {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .roblox-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+        }
+
+        .roblox-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: 900;
+            color: #00a2ff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            color: #cccccc;
+            font-weight: 600;
+        }
+
+        .form-container {
+            margin-bottom: 30px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 18px 20px;
+            background: #2d2d2d;
+            border: 2px solid #4a4a4a;
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        input[type="text"]:focus {
+            border-color: #00a2ff;
+            box-shadow: 0 0 0 4px rgba(0, 162, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        input[type="text"]::placeholder {
+            color: #888888;
+            font-weight: 400;
+        }
+
+        .generate-btn {
+            width: 100%;
+            padding: 18px 30px;
+            background: linear-gradient(135deg, #00a2ff 0%, #0066cc 100%);
+            border: none;
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 162, 255, 0.4);
+            background: linear-gradient(135deg, #0088dd 0%, #0055aa 100%);
+        }
+
+        .generate-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .generate-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .generate-btn:hover::before {
+            left: 100%;
+        }
+
+        .loading-container {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .loading-bar-container {
+            background: #2d2d2d;
+            border: 2px solid #4a4a4a;
+            border-radius: 12px;
+            height: 16px;
+            overflow: hidden;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .loading-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #00a2ff, #0088dd, #00a2ff);
+            background-size: 200% 100%;
+            border-radius: 10px;
+            width: 0%;
+            transition: width 1s linear;
+            animation: loadingShimmer 2s infinite;
+            position: relative;
+        }
+
+        .loading-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: loadingGlow 1.5s infinite;
+        }
+
+        @keyframes loadingShimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        @keyframes loadingGlow {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .loading-text {
+            font-size: 18px;
+            margin: 10px 0;
+            font-weight: 600;
+            color: #00a2ff;
+        }
+
+        .loading-subtext {
+            font-size: 14px;
+            color: #cccccc;
+            font-weight: 400;
+        }
+
+        .success-container {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00ff88, #00cc66);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            animation: successPulse 2s infinite;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+
+        @keyframes successPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .points-display {
+            font-size: 3.2em;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 20px 0;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .robux-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #00a2ff;
+            border-radius: 8px;
+            margin-right: 10px;
+            position: relative;
+            vertical-align: middle;
+        }
+
+        .robux-icon::before {
+            content: 'R$';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: 900;
+            font-size: 16px;
+        }
+
+        .success-message {
+            font-size: 18px;
+            line-height: 1.6;
+            font-weight: 600;
+            color: #cccccc;
+        }
+
+        .roblox-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .roblox-cube {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #00a2ff;
+            opacity: 0.1;
+            animation: float 8s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg); 
+                opacity: 0.1; 
+            }
+            50% { 
+                transform: translateY(-30px) rotate(180deg); 
+                opacity: 0.3; 
+            }
+        }
+
+        .error-message {
+            color: #ff4757;
+            background: rgba(255, 71, 87, 0.1);
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 20px;
+            border: 2px solid rgba(255, 71, 87, 0.3);
+            display: none;
+            font-weight: 600;
+        }
+
+        /* Roblox-style glow effects */
+        .glow-blue {
+            box-shadow: 0 0 20px rgba(0, 162, 255, 0.3);
+        }
+
+        .glow-green {
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
